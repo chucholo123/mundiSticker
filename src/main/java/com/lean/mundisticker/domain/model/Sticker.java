@@ -3,24 +3,24 @@ package com.lean.mundisticker.domain.model;
 import java.util.UUID;
 
 public class Sticker {
-    private UUID id;
-    private String numero;
+    private Long id;
+    private String nombre;
     private String seleccion;
 
     public Sticker() {}
 
-    public Sticker(UUID id, String numero, String seleccion) {
+    public Sticker(Long id, String nombre, String seleccion) {
         this.id = id;
-        this.numero = numero;
+        this.nombre = nombre;
         this.seleccion = seleccion;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
     public String getNumero() {
-        return numero;
+        return nombre;
     }
 
     public String getSeleccion() {
