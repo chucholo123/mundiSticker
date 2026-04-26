@@ -1,5 +1,6 @@
 package com.lean.mundisticker.domain.model;
 
+import com.lean.mundisticker.domain.exception.ReglaNegocioException;
 import org.locationtech.jts.geom.Point;
 import java.util.UUID;
 
@@ -16,16 +17,24 @@ public class Usuario {
         this.ubicacion = ubicacion;
     }
 
+    public void completarRecepcionSticker(Long idSticker) {
+        // Hook para consistencia transaccional: se ejecutará al completar un intercambio o venta
+    }
+
+    public void completarEntregaSticker(Long idSticker) {
+        // Hook para consistencia transaccional: se ejecutará al completar un intercambio o venta
+    }
+
     public void cambiarNombre(String nuevoNombre) {
         if (nuevoNombre == null || nuevoNombre.isBlank()) {
-            throw new IllegalArgumentException("El nombre no puede estar vacío");
+            throw new ReglaNegocioException("El nombre no puede estar vacío");
         }
         this.nombre = nuevoNombre;
     }
 
     public void cambiarContraseña(String nuevaContrasena) {
         if (nuevaContrasena == null || nuevaContrasena.length() < 8) {
-            throw new IllegalArgumentException("La contraseña debe tener al menos 8 caracteres");
+            throw new ReglaNegocioException("La contraseña debe tener al menos 8 caracteres");
         }
         this.contrasena = nuevaContrasena;
     }
