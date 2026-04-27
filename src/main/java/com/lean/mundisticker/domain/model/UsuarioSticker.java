@@ -31,6 +31,11 @@ public class UsuarioSticker {
         this.cantidad -= 1;
     }
 
+    public void actualizarCantidad(int nuevaCantidad) {
+        if (nuevaCantidad < 0) throw new IllegalArgumentException("La cantidad no puede ser negativa");
+        this.cantidad = nuevaCantidad;
+    }
+
     public UUID getId() {
         return id;
     }
